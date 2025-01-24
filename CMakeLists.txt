@@ -64,11 +64,20 @@ add_library(glim_callback_demo SHARED
 )
 target_link_libraries(glim_callback_demo glim::glim)
 
-# Executable: orb_slam_test
-add_executable(orb_slam_test
-  src/glim_extension_test/orb_slam/orb_slam_test.cpp
+# Executable: mono_slam_test
+add_executable(mono_slam_test
+  src/glim_extension_test/orb_slam/mono_slam_test.cpp
 )
-target_link_libraries(orb_slam_test
+target_link_libraries(mono_slam_test
+  glim_extension_test
+  glim_callback_demo
+)
+
+# Executable: stereo_slam_test
+add_executable(stereo_slam_test
+  src/glim_extension_test/orb_slam/stereo_slam_test.cpp
+)
+target_link_libraries(stereo_slam_test
   glim_extension_test
   glim_callback_demo
 )
@@ -78,7 +87,7 @@ target_link_libraries(orb_slam_test
 #############
 include(GNUInstallDirs)
 
-install(TARGETS glim_extension_test glim_callback_demo orb_slam_test
+install(TARGETS glim_extension_test glim_callback_demo mono_slam_test stereo_slam_test
   LIBRARY DESTINATION lib/${PROJECT_NAME}
   ARCHIVE DESTINATION lib/${PROJECT_NAME}
   RUNTIME DESTINATION lib/${PROJECT_NAME}
@@ -88,7 +97,8 @@ if(DEFINED ENV{ROS_VERSION})
   if($ENV{ROS_VERSION} EQUAL 2)
     install(DIRECTORY config DESTINATION share/glim_extension_test)
     ament_target_dependencies(glim_extension_test glim OpenCV ORB_SLAM3)
-    ament_target_dependencies(orb_slam_test glim OpenCV ORB_SLAM3)
+    ament_target_dependencies(mono_slam_test glim OpenCV ORB_SLAM3)
+    ament_target_dependencies(stereo_slam_test glim OpenCV ORB_SLAM3)
     ament_export_libraries(glim_extension_test glim_callback_demo)
     ament_package()
   elseif($ENV{ROS_VERSION} EQUAL 1)
