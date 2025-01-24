@@ -1,0 +1,22 @@
+version: "3.9"
+
+services:
+  vl_container:
+    image: ${IMAGE_NAME}
+    container_name: ${CONTAINER_NAME}
+    environment:
+      - DISPLAY=${DISPLAY}      
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix    
+    stdin_open: true
+    tty: true
+    network_mode: host
+    ipc: "host"
+    pid: "host"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]

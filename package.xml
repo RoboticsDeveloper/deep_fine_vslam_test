@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>glim_extension_test</name>
+  <version>0.0.0</version>
+  <description>Extension modules for GLIM</description>
+  <maintainer email="k.koide@aist.go.jp">k.koide</maintainer>
+  <license>GPLv3</license>
+
+  <buildtool_depend condition="$ROS_VERSION == 1">catkin</buildtool_depend>
+  <buildtool_depend condition="$ROS_VERSION == 2">ament_cmake</buildtool_depend>
+
+  <build_depend>ament_cmake</build_depend>
+  <build_depend>glim</build_depend>
+  <build_depend>Pangolin</build_depend>
+  <build_depend>OpenCV</build_depend>
+  <build_depend>Sophus</build_depend>
+  <build_depend>ORB_SLAM3</build_depend>
+
+  <exec_depend>ament_cmake</exec_depend>
+  <exec_depend>glim</exec_depend>
+  <exec_depend>Pangolin</exec_depend>
+  <exec_depend>OpenCV</exec_depend>
+  <exec_depend>Sophus</exec_depend>
+  <exec_depend>ORB_SLAM3</exec_depend>
+
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+
+  <export>
+    <build_type condition="$ROS_VERSION == 2">ament_cmake</build_type>
+  </export>
+</package>
