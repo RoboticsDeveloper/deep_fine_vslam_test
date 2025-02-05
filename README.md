@@ -9,7 +9,7 @@ make build // docker image build
 
 make // docker container run
 
-cd data/orb_slam
+cd ~/ros2_ws/src/glim_extension_testdata/orb_slam
 ./download_dataset_sample.sh // test dataset download
 
 cd ~/ros2_ws
