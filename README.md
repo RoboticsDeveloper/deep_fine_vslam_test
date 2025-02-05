@@ -21,7 +21,7 @@ ros2 run glim_extension_test stereo_slam_test
 
 # 주요 수정 사항을 확인할 수 있는 파일 경로
 
-- .gitmoudles 
+- .gitmodules 
 - CMakeLists.txt
 - package.xml
 - Makefile
