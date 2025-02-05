@@ -1,3 +1,34 @@
+# 실행 방법
+ 
+```bash
+git clone https://github.com/RoboticsDeveloper/deep_fine_vslam_test.git
+
+cd deep_fine_vslam_test
+
+make build // docker image build
+
+make // docker container run
+
+cd data/orb_slam
+./download_dataset_sample.sh // test dataset download
+
+cd ~/ros2_ws
+source install/setup.bash // ros2 pkg update
+
+ros2 run glim_extension_test mono_slam_test  
+ros2 run glim_extension_test stereo_slam_test 
+```
+
+# 주요 수정 사항을 확인할 수 있는 파일 경로
+
+- .gitmoudles 
+- CMakeLists.txt
+- package.xml
+- Makefile
+- docker-compose.yaml
+- src/glim_extension_test/mono_slam_test.cpp
+- src/glim_extension_test/stereo_slam_test.cpp
+
 # 프로젝트 보고서
 
 ## 1. 개요
